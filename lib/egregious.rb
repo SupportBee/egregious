@@ -160,7 +160,7 @@ module Egregious
     HoptoadNotifier.notify(exception) if defined?(HoptoadNotifier)
     if defined?(Exceptional)
       Exceptional.context(:env => Rails.env)
-      Exceptional.handle(e)
+      Exceptional.handle(exception)
     end
   end
 
