@@ -158,6 +158,10 @@ module Egregious
             clean_backtrace(exception).join("\n    ") +
             "\n\n")
     HoptoadNotifier.notify(exception) if defined?(HoptoadNotifier)
+    if defined?(Exceptional)
+      Exceptional.context(:env => Rails.env)
+      Exceptional.handle(e)
+    end
   end
 
   # override this if you want to change your respond_to behavior
