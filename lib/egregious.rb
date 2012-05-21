@@ -159,8 +159,8 @@ module Egregious
             "\n\n")
     HoptoadNotifier.notify(exception) if defined?(HoptoadNotifier)
     if defined?(Exceptional)
-      Exceptional.context(:env => Rails.env)
-      Exceptional.handle(exception)
+      Exceptional::Catcher.handle_with_controller(exception, self, request)
+      Exceptional.context.clear!
     end
   end
 
