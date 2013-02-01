@@ -22,7 +22,6 @@ describe Exception do
   it "should output be valid json on to_json" do
     result = JSON.parse(Exception.new("Yes").to_json)
     result['error'].should == "Yes"
-    result['type'].should == "Exception"
   end
 
   it "should output be valid json on to_json with quotes" do

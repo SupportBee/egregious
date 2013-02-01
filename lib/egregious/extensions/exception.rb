@@ -13,7 +13,7 @@ class Exception
   end
 
   def to_json
-    "{\"error\":#{ActiveSupport::JSON.encode(self.message.gsub(/\r/, ' ').gsub(/\n/, ' ').squeeze(' '))}, \"type\":\"#{self.exception_type}\"}"
+    "{\"error\":#{ActiveSupport::JSON.encode(self.message.gsub(/\r/, ' ').gsub(/\n/, ' ').squeeze(' '))}}"
   end
 
 end
